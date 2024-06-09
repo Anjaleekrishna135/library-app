@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
 
 const ViewAll = () => {
+  const [data, changeData] = useState(
+    [
+      { "Title": "The Hidden Hindhu", "Author": "Akshath Guptha", "Publisher": "DC", "Price": 250 },
+      { "Title": "That Night", "Author": "Nidhi", "Publisher": "Fres", "Price": 300 },
+      { "Title": "The Mountain is You", "Author": "Briana Wiest", "Publisher": "ABC", "Price": 300 },
+      { "Title": "The Alchemist", "Author": "Paulo colelo", "Publisher": "Brusio", "Price": 250 }
+    ]
+
+  )
   return (
     <div>
       <NavBar />
@@ -11,7 +20,7 @@ const ViewAll = () => {
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+
                   <th scope="col">Title</th>
                   <th scope="col">Author</th>
                   <th scope="col">Publisher</th>
@@ -19,34 +28,17 @@ const ViewAll = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Ikigai</td>
-                  <td>Francis</td>
-                  <td>DC</td>
-                  <td>120</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>The Hidden Hindu</td>
-                  <td>Akshat Gupta</td>
-                  <td>Canvua</td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>That Night</td>
-                  <td>Nidhi Gupta</td>
-                  <td>Shalot</td>
-                  <td>500</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>The mountain is you</td>
-                  <td>Brianna Wiest</td>
-                  <td>romiet</td>
-                  <td>400</td>
-                </tr>
+                {data.map((value, index) => (
+                  <tr key={index}>
+                    <td>{value.Title}</td>
+                    <td>{value.Author}</td>
+                    <td>{value.Publisher}</td>
+                    <td>{value.Price}</td>
+
+                  </tr>
+                )
+                )
+                }
 
               </tbody>
             </table>
